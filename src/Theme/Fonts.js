@@ -14,8 +14,17 @@ export default function ({ FontSize, Colors }) {
       fontSize: FontSize.small,
       color: Colors.text,
     },
+    textRegularDefault: {
+      fontSize: FontSize.medium,
+      color: Colors.text,
+    },
     textRegular: {
       fontSize: FontSize.regular,
+      color: Colors.text,
+    },
+    textRegularBold: {
+      fontSize: FontSize.regular,
+      fontWeight: 'bold',
       color: Colors.text,
     },
     textLarge: {

@@ -30,8 +30,14 @@ export default function ({ Colors, Gutters, Layout }) {
     regularButton:{
       backgroundColor: Colors.default,
       borderRadius: 5,
+      minHeight: 50,
+      textAlign:'center',
       color:Colors.buttonText,
       width: '100%'
+    },
+    loginButton:{
+      color:Colors.black,
+      backgroundColor: Colors.default,
     }
   })
 }

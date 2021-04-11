@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { IndexStartupContainer,IndexLoginContainer } from '@/Containers'
+import { 
+  IndexStartupContainer,
+  IndexSigninContainer,
+  IndexHomePageContainer,
+  IndexRigUpBhaContainer,IndexBreakDownBhaContainer,
+  IndexManageToolBoxesContainer,IndexSearchToolsContainer } from '@/Containers'
 import { useSelector } from 'react-redux'
 import { NavigationContainer } from '@react-navigation/native'
 import { navigationRef } from '@/Navigators/Root'
@@ -43,12 +48,17 @@ const ApplicationNavigator = () => {
           {isApplicationLoaded && MainNavigator != null && (
             <Stack.Screen
               name="Main"
-              component={IndexLoginContainer}
+              component={IndexSigninContainer}
               options={{
                 animationEnabled: false,
               }}
             />
           )}
+          <Stack.Screen name="HomePage" component={IndexHomePageContainer} />
+          <Stack.Screen name="RigUpBha" component={IndexRigUpBhaContainer} />
+          <Stack.Screen name="BreakDownBha" component={IndexBreakDownBhaContainer} />
+          <Stack.Screen name="ManageToolBoxes" component={IndexManageToolBoxesContainer} />
+          <Stack.Screen name="SearchTools" component={IndexSearchToolsContainer} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>

@@ -5,6 +5,7 @@
  */
 export default function () {
   return {
-    logo: require('@/Assets/Images/dht-logo.png'),
+    logo: require('@/Assets/Images/Halliburton-logo.png'),
+    profilepic: require('@/Assets/Images/profile-pic.png')
   }
 }

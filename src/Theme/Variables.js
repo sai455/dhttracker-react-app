@@ -19,7 +19,8 @@ export const Colors = {
   default:'#D4D4D4',
   buttonText:'#878787',
   error: '#dc3545',
-  lightgrey:'#AEAEAE'
+  lightgrey:'#AEAEAE',
+  black:'#000000'
 }
 
 export const NavigationColors = {
@@ -31,7 +32,8 @@ export const NavigationColors = {
  */
 export const FontSize = {
   small: 16,
-  regular: 20,
+  medium: 18,
+  regular: 24,
   large: 40,
 }
 
@@ -42,9 +44,11 @@ const tiny = 5 // 10
 const small = tiny * 2 // 10
 const regular = tiny * 3 // 15
 const large = regular * 2 // 30
+const xlarge = regular * 5 // 30
 export const MetricsSizes = {
   tiny,
   small,
   regular,
   large,
+  xlarge
 }
