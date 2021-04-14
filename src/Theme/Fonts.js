@@ -9,6 +9,7 @@ import { StyleSheet } from 'react-native'
  * @return {*}
  */
 export default function ({ FontSize, Colors }) {
+  
   return StyleSheet.create({
     textSmall: {
       fontSize: FontSize.small,
@@ -60,6 +61,26 @@ export default function ({ FontSize, Colors }) {
     },
     textlight:{
       color:Colors.lightgrey
+    },
+    textBlack:{
+      color:Colors.black
+    },
+    textFlexRight:{
+      flex:1,
+      textAlign: 'right',
+      color:Colors.lightgrey
+    },
+    textHeader:{
+      fontSize:15,
+      color:Colors.lightgrey
+    },
+    textFont12:{
+      fontSize:12,
+      textTransform: 'uppercase',
+      paddingBottom:'1%'
+    },
+    borderGrey:{
+      borderWidth:0.5
     }
   })
 }

@@ -38,6 +38,12 @@ export default function ({ Colors, Gutters, Layout }) {
     loginButton:{
       color:Colors.black,
       backgroundColor: Colors.default,
+    },
+    createToolBoxButton:{
+      width:'80%',
+      left:'10%',
+      color:Colors.black,
+      backgroundColor: Colors.default,
     }
   })
 }
