@@ -37,7 +37,7 @@ const IndexSigninContainer = ({ navigation })  => {
                         onChangeText={p => setPassword(p) } style={[Gutters.smallTMargin]}
                     />
                     <Button mode="contained" raised theme={{ roundness: 3 }}  uppercase={false}
-                        onPress={() => navigation.navigate('HomePage')}
+                        onPress={() => navigation.navigate('HomePage')} labelStyle={{color: Colors.grey}}
                         style={[Gutters.smallTMargin, Common.button.loginButton]}>
                         Sign In
                 </Button>

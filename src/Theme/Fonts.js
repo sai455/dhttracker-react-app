@@ -23,6 +23,11 @@ export default function ({ FontSize, Colors }) {
       fontSize: FontSize.regular,
       color: Colors.text,
     },
+    textSmallBold: {
+      fontSize: FontSize.small,
+      color: Colors.text,
+      fontWeight: 'bold',
+    },
     textRegularBold: {
       fontSize: FontSize.regular,
       fontWeight: 'bold',
@@ -71,13 +76,15 @@ export default function ({ FontSize, Colors }) {
       color:Colors.lightgrey
     },
     textHeader:{
-      fontSize:15,
+      fontSize:14,
+      lineHeight:16,
       color:Colors.lightgrey
     },
     textFont12:{
-      fontSize:12,
       textTransform: 'uppercase',
-      paddingBottom:'1%'
+      fontSize: FontSize.small,
+      color: Colors.text,
+      fontWeight: 'bold',
     },
     borderGrey:{
       borderWidth:0.5

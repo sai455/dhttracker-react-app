@@ -20,6 +20,12 @@ export default function ({ Colors, ...args }) {
       backgroundReset: {
         backgroundColor: Colors.transparent,
       },
+      backgroundGrey: {
+        backgroundColor: Colors.bgGrey,
+      },
+      backgroundLight: {
+        backgroundColor: Colors.bgLight,
+      },
       textInput: {
         borderWidth: 1,
         borderColor: Colors.text,

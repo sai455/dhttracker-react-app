@@ -20,7 +20,10 @@ export const Colors = {
   buttonText:'#878787',
   error: '#dc3545',
   lightgrey:'#AEAEAE',
-  black:'#000000'
+  black:'#000000',
+  grey:'#808080',
+  bgGrey:'#ECECEC',
+  bgLight:'#F9F9F9'
 }
 
 export const NavigationColors = {

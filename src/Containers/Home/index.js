@@ -39,7 +39,7 @@ const IndexHomePageContainer = ({ navigation }) => {
       </View>
       <View style={[Layout.fill, Gutters.xlargeTMargin, Gutters.smallHPadding]}>
         <Button mode="contained" raised theme={{ roundness: 5 }} uppercase={false}
-          onPress={showDialog}
+          onPress={showDialog} labelStyle={{color: Colors.grey}}
           style={[Gutters.smallTMargin, Common.button.loginButton]}>
           Update Tools Status
                 </Button>
@@ -48,29 +48,30 @@ const IndexHomePageContainer = ({ navigation }) => {
             <Dialog.Title style={[Fonts.textSmall]}>Please select one from Update Tool Status</Dialog.Title>
             <Dialog.Content>
               <Button mode="contained" raised theme={{ roundness: 5 }} uppercase={false}
-                onPress={() => navigateToBha('RigUpBha')}
+                onPress={() => navigateToBha('RigUpBha')} labelStyle={{color: Colors.grey}}
                 style={[Gutters.largeTMargin, Common.button.loginButton]}>
                 Rig Up BHA
                 </Button>
               <Button mode="contained" raised theme={{ roundness: 5 }} uppercase={false}
-                onPress={() => navigateToBha('BreakDownBha')}
+                onPress={() => navigateToBha('BreakDownBha')} labelStyle={{color: Colors.grey}}
                 style={[Gutters.largeTMargin, Common.button.loginButton]}>
                 Break Down BHA
                 </Button>
             </Dialog.Content>
             <Dialog.Actions>
-              <Button onPress={() => console.log('Cancel')}>Cancel</Button>
+              <Button onPress={hideDialog}>Cancel</Button>
             </Dialog.Actions>
           </Dialog>
         </Portal>
         <Button mode="contained" raised theme={{ roundness: 5 }} uppercase={false}
-          onPress={() => navigation.navigate('ManageToolBoxes')}
-          style={[Gutters.largeTMargin, Common.button.loginButton]}>
+          onPress={() => navigation.navigate('ManageToolBoxes')} 
+          style={[Gutters.largeTMargin, Common.button.loginButton]} 
+          labelStyle={{color: Colors.grey}}>
           Manage Toolboxes
                 </Button>
         <Button mode="contained" raised theme={{ roundness: 5 }} uppercase={false}
           onPress={() => navigation.navigate('SearchTools')}
-          style={[Gutters.largeTMargin, Common.button.loginButton]}>
+          style={[Gutters.largeTMargin, Common.button.loginButton]} labelStyle={{color: Colors.grey}}>
           Search for Tools
                 </Button>
       </View>

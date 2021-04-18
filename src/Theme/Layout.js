@@ -105,5 +105,18 @@ export default function () {
     rotate90Inverse: {
       transform: [{ rotate: '-90deg' }],
     },
+    flatListContainer: {
+      flex: 1,
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      alignItems: 'flex-start'
+    },
+    flatListRow: {
+      width: '45%',
+      padding: 10
+    },
+    flatListIconRow: {
+      width: '5%',
+    }
   })
 }
