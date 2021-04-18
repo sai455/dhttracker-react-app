@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, FlatList} from 'react-native';
-import { Text, Appbar, List, Colors as PapperColors, Button,Searchbar } from 'react-native-paper';
-import { useTheme } from '@/Theme'
+import { View, FlatList } from 'react-native';
+import { Text, Appbar, List, Colors as PapperColors, Button, Searchbar } from 'react-native-paper';
+import { useTheme } from '@/Theme';
+import DropDownPicker from 'react-native-dropdown-picker';
 
 const IndexManageToolBoxesContainer = ({ navigation }) => {
   const _goBack = () => navigation.navigation.goBack(null);
@@ -35,44 +36,63 @@ const IndexManageToolBoxesContainer = ({ navigation }) => {
         </View>
 
         <View style={[Gutters.smallTPadding]}>
-          <Searchbar
-            placeholder="Search By Country"
-            onChangeText={query => { console.log(query) }}
+          <DropDownPicker
+            items={[
+              { label: 'USA', value: 'usa' },
+              { label: 'UK', value: 'uk' },
+              { label: 'France', value: 'france' },
+            ]}
+            containerStyle={{ height: 45 }}
+            style={{ backgroundColor: '#fafafa' }}
+            itemStyle={{
+              justifyContent: 'flex-start'
+            }}
+            dropDownStyle={{ backgroundColor: '#fafafa' }}
+            onChangeItem={item => console.log('value', item)}
+            searchable={true}
+            searchablePlaceholder="Search for an item"
+            searchablePlaceholderTextColor="gray"
+            seachableStyle={{}}
+            searchableError={() => <Text>Not Found</Text>}
+            onSearch={text => {
+              // Example
+              // alert(text)
+            }}
           />
         </View>
 
 
-        <View style={[Layout.fill, Gutters.smallTMargin]}>
-          
-        <FlatList
-          data={listData}
-          renderItem={({ item, index }) =>
-            <View style={[index % 2==0? Common.backgroundLight:Common.backgroundGrey]}>
-              <View style={Layout.flatListContainer}>
-                <View style={Layout.flatListRow}>
-                  <Text style={Fonts.textHeader}>TOOL BOX</Text>
-                  <Text style={[Fonts.textFont12]}>{item.toolboxname}</Text>
-                  <Text style={[Fonts.textHeader, Gutters.smallTPadding]}>STATUS</Text>
-                  <Text style={[Fonts.textFont12]}>{item.status}</Text>
-                </View>
-                <View style={Layout.flatListRow}>
-                  <Text style={[Fonts.textHeader, Fonts.textRight]}>NO. OF TOOLS</Text>
-                  <Text style={[Fonts.textFont12, Fonts.textRight]}>{item.noofTools}</Text>
-                  <Text style={[Fonts.textHeader, Fonts.textRight, , Gutters.smallTPadding]}>AVAILABLE</Text>
-                  <Text style={[Fonts.textFont12, Fonts.textRight]}>{item.country}</Text>
-                </View>
-                <View style={Layout.flatListIconRow}>
-                  <Button icon="delete"
-                    color={PapperColors.grey500}
-                    mode="text"
-                    style={[Gutters.smallRPadding, Gutters.largeTPadding]}
-                    onPress={() => console.log(item.id)}>
-                  </Button>
+        <View style={[Layout.fill, Gutters.largeTMargin]}>
+
+          <FlatList
+            data={listData}
+            renderItem={({ item, index }) =>
+              <View style={[index % 2 == 0 ? Common.backgroundLight : Common.backgroundGrey]}>
+                <View style={Layout.flatListContainer}>
+                  <View style={Layout.flatListRow}>
+                    <Text style={Fonts.textHeader}>TOOL BOX</Text>
+                    <Text style={[Fonts.textFont12]}>{item.toolboxname}</Text>
+                    <Text style={[Fonts.textHeader, Gutters.smallTPadding]}>STATUS</Text>
+                    <Text style={[Fonts.textFont12]}>{item.status}</Text>
+                  </View>
+                  <View style={Layout.flatListRow}>
+                    <Text style={[Fonts.textHeader, Fonts.textRight]}>NO. OF TOOLS</Text>
+                    <Text style={[Fonts.textFont12, Fonts.textRight]}>{item.noofTools}</Text>
+                    <Text style={[Fonts.textHeader, Fonts.textRight, , Gutters.smallTPadding]}>AVAILABLE</Text>
+                    <Text style={[Fonts.textFont12, Fonts.textRight]}>{item.country}</Text>
+                  </View>
+                  <View style={Layout.flatListIconRow}>
+                    <Button icon="delete"
+                      color={PapperColors.grey500}
+                      mode="text"
+                      style={[Gutters.smallRPadding, Gutters.largeTPadding]}
+                      onPress={() => console.log(item.id)}>
+                    </Button>
+                  </View>
                 </View>
               </View>
-            </View>
-          }
-        />
+            }
+          />
         </View>
 
         <View style={[Gutters.smallBMargin, Gutters.smallTMargin]}>
