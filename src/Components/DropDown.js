@@ -1,9 +1,8 @@
 import React,{ useState } from 'react'
-import { View, Image } from 'react-native'
+import { View, Platform } from 'react-native'
 import { useTheme } from '../Theme';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { Text   } from 'react-native';
-import {TouchableOpacity} from 'react-native-paper';
 import Layout from '../Theme/Layout';
 
 const DropDown = (props) => {
@@ -16,7 +15,12 @@ const DropDown = (props) => {
   }
 
   return (
-    <View style={[Layout.fullWidth]}>
+    <View style={{
+      ...(Platform.OS !== 'android' && {
+        zIndex: 10
+          }),  
+          width: '100%'
+        }}>
       <DropDownPicker
             items={props.list}
             containerStyle={props.containerStyle}

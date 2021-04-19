@@ -42,7 +42,7 @@ const IndexSearchToolsContainer = ({ navigation }) => {
 
         <View style={[Gutters.smallTMargin, Gutters.smallHPadding]}>
           <Button mode="contained" raised theme={{ roundness: 3 }} uppercase={false}
-            onPress={() => navigation.navigate('HomePage')}
+            onPress={() => navigation.navigate('ToolsLookupPage')}
             style={[Gutters.smallTMargin, Common.button.loginButton]}>
             Lookup Tool
           </Button>
@@ -52,14 +52,14 @@ const IndexSearchToolsContainer = ({ navigation }) => {
           <Text style={[Fonts.textSmall, Fonts.textCenter, Gutters.smallTMargin]}>OR</Text>
         </View>
 
-        <View style={[Gutters.smallLMargin,Gutters.largeTMargin,Gutters.smallRMargin]}>
+        <View style={[Gutters.smallLMargin, Gutters.largeTMargin, Gutters.smallRMargin]}>
           <DropDown list={countriesList} setData={setData} containerStyle={{ height: 45 }} placeholder={'Select Country'} searchablePlaceholder={'Search Country'}></DropDown>
         </View>
       </View>
       <View style={[Gutters.smallBMargin, Gutters.smallTMargin]}>
-        <Button mode="contained"  disabled={!selectedCountry ? true: false} 
-        onPress={() => navigation.navigate('ToolsSearchResults')}
-        raised theme={{ roundness: 5 }} uppercase={false}
+        <Button mode="contained" disabled={!selectedCountry ? true : false}
+          onPress={() => navigation.navigate('ToolsSearchResults')}
+          raised theme={{ roundness: 5 }} uppercase={false}
           style={[Gutters.smallHPadding, Common.button.createToolBoxButton]} labelStyle={{ color: Colors.grey }}>
           Search
           </Button>

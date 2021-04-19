@@ -124,6 +124,9 @@ export default function () {
     flatListHalf:{
       width: '50%',
       padding: 10
+    },
+    halfWidth:{
+      width: '50%'
     }
   })
 }

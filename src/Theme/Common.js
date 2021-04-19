@@ -23,6 +23,10 @@ export default function ({ Colors, ...args }) {
       backgroundGrey: {
         backgroundColor: Colors.bgGrey,
       },
+      backgroundGreyBorder: {
+        backgroundColor: Colors.bgGrey,
+        borderWidth: 0.5
+      },
       backgroundLight: {
         backgroundColor: Colors.bgLight,
       },

@@ -87,7 +87,14 @@ export default function ({ FontSize, Colors }) {
       fontWeight: 'bold',
     },
     borderGrey:{
-      borderWidth:0.5
-    }
+      borderWidth:0.5,
+      backgroundColor: Colors.bgGrey,
+      color:Colors.black
+    },
+    text13: {
+      fontSize: 13,
+      color: Colors.text,
+      fontWeight: 'bold'
+    },
   })
 }
