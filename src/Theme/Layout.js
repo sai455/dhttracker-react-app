@@ -58,6 +58,9 @@ export default function () {
     alignItemsStart: {
       alignItems: 'flex-start',
     },
+    alignItemsEnd: {
+      alignItems: 'flex-end',
+    },
     alignItemsStretch: {
       alignItems: 'stretch',
     },
@@ -117,6 +120,10 @@ export default function () {
     },
     flatListIconRow: {
       width: '5%',
+    },
+    flatListHalf:{
+      width: '50%',
+      padding: 10
     }
   })
 }

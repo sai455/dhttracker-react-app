@@ -8,3 +8,4 @@ export { default as IndexBreakDownBhaContainer } from './UpdateToolStatus/BreakD
 export { default as IndexManageToolBoxesContainer } from './ManageToolBox'
 export { default as IndexSearchToolsContainer } from './SearchToolBox'
 export { default as IndexBarCodeToolContainer } from './ScanBarCodeTool/ScannedViewTool'
+export { default as IndexToolsSearchResultsContainer } from './ToolsSearchResults'

@@ -52,12 +52,14 @@ const IndexSearchToolsContainer = ({ navigation }) => {
           <Text style={[Fonts.textSmall, Fonts.textCenter, Gutters.smallTMargin]}>OR</Text>
         </View>
 
-        <View style={[Gutters.largeTPadding]}>
+        <View style={[Gutters.smallLMargin,Gutters.largeTMargin,Gutters.smallRMargin]}>
           <DropDown list={countriesList} setData={setData} containerStyle={{ height: 45 }} placeholder={'Select Country'} searchablePlaceholder={'Search Country'}></DropDown>
         </View>
       </View>
       <View style={[Gutters.smallBMargin, Gutters.smallTMargin]}>
-        <Button mode="contained"  disabled={!selectedCountry ? false: true} raised theme={{ roundness: 5 }} uppercase={false}
+        <Button mode="contained"  disabled={!selectedCountry ? true: false} 
+        onPress={() => navigation.navigate('ToolsSearchResults')}
+        raised theme={{ roundness: 5 }} uppercase={false}
           style={[Gutters.smallHPadding, Common.button.createToolBoxButton]} labelStyle={{ color: Colors.grey }}>
           Search
           </Button>

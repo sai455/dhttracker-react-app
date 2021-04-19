@@ -5,7 +5,7 @@ import {
   IndexSigninContainer,
   IndexHomePageContainer,
   IndexRigUpBhaContainer,IndexBreakDownBhaContainer,
-  IndexManageToolBoxesContainer,IndexSearchToolsContainer,IndexBarCodeToolContainer } from '@/Containers'
+  IndexManageToolBoxesContainer,IndexSearchToolsContainer,IndexToolsSearchResultsContainer,IndexBarCodeToolContainer } from '@/Containers'
 import { useSelector } from 'react-redux'
 import { NavigationContainer } from '@react-navigation/native'
 import { navigationRef } from '@/Navigators/Root'
@@ -60,6 +60,7 @@ const ApplicationNavigator = () => {
           <Stack.Screen name="ManageToolBoxes" component={IndexManageToolBoxesContainer} />
           <Stack.Screen name="SearchTools" component={IndexSearchToolsContainer} />
           <Stack.Screen name="BarCodeTool" component={IndexBarCodeToolContainer} />
+          <Stack.Screen name="ToolsSearchResults" component={IndexToolsSearchResultsContainer} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>
