@@ -29,6 +29,7 @@ const DropDown = (props) => {
             itemStyle={{
               justifyContent: 'flex-start'
             }}
+            defaultValue={props.defaultValue}
             dropDownStyle={{ backgroundColor: '#fafafa' }}
             onChangeItem={item => props.setData(item) }
             searchable={true}

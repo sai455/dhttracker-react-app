@@ -107,7 +107,7 @@ const IndexBarCodeToolContainer = ({ navigation }) => {
                 <View style={[Layout.halfWidth]}>
                 <Button mode="contained" raised theme={{ roundness: 5 }} uppercase={false}
                       icon="pencil-outline"
-                      onPress={() => navigation.navigate('ToolsLookupPage')}
+                      onPress={() => navigation.navigate('EditToolsPage')}
                       style={[Gutters.smallTMargin,Gutters.smallLMargin ,Fonts.borderGrey]}>
                       Edit Properties
                   </Button>
