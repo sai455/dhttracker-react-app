@@ -11,3 +11,4 @@ export { default as IndexBarCodeToolContainer } from './ScanBarCodeTool/ScannedV
 export { default as IndexToolsSearchResultsContainer } from './ToolsSearchResults'
 export { default as IndexToolsLookupContainer } from './ToolsLookUp'
 export { default as IndexEditToolContainer } from './EditTools'
+export { default as IndexAssMaintainenceContainer } from './AddMaintainence'
