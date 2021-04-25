@@ -12,3 +12,4 @@ export { default as IndexToolsSearchResultsContainer } from './ToolsSearchResult
 export { default as IndexToolsLookupContainer } from './ToolsLookUp'
 export { default as IndexEditToolContainer } from './EditTools'
 export { default as IndexAssMaintainenceContainer } from './AddMaintainence'
+export { default as IndexCreateToolBoxContainer } from './CreateNewToolBox'
