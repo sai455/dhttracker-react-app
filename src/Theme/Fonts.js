@@ -97,7 +97,16 @@ export default function ({ FontSize, Colors }) {
       fontWeight: 'bold'
     },
     fontSize12:{
-      fontSize: 12
+      fontSize: 11
+    },
+    fontGreen:{
+      color:'green'
+    },
+    fontRed:{
+      color:'red'
+    },
+    fontBlue:{
+      color:'blue'
     }
   })
 }

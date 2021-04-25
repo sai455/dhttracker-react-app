@@ -1,5 +1,5 @@
-import React,{useState} from 'react';
-import { View, FlatList } from 'react-native';
+import React, { useState } from 'react';
+import { View, FlatList, TouchableOpacity } from 'react-native';
 import { Text, Appbar, List, Colors as PapperColors, Button, Searchbar } from 'react-native-paper';
 import { useTheme } from '@/Theme';
 
@@ -49,7 +49,7 @@ const IndexManageToolBoxesContainer = ({ navigation }) => {
         </View>
 
         <View style={[Gutters.smallTPadding]}>
-            <DropDown list={countriesList} setData={setCountry} containerStyle={{ height: 45 }} placeholder={'Select Country'} searchablePlaceholder={'Search for Country'}></DropDown>
+          <DropDown list={countriesList} setData={setCountry} containerStyle={{ height: 45 }} placeholder={'Select Country'} searchablePlaceholder={'Search for Country'}></DropDown>
         </View>
 
 
@@ -59,6 +59,7 @@ const IndexManageToolBoxesContainer = ({ navigation }) => {
             data={listData}
             renderItem={({ item, index }) =>
               <View style={[index % 2 == 0 ? Common.backgroundLight : Common.backgroundGrey]}>
+                <TouchableOpacity onPress={() => navigation.navigate('ToolBoxView')}>
                 <View style={Layout.flatListContainer}>
                   <View style={Layout.flatListRow}>
                     <Text style={Fonts.textHeader}>TOOL BOX</Text>
@@ -81,14 +82,15 @@ const IndexManageToolBoxesContainer = ({ navigation }) => {
                     </Button>
                   </View>
                 </View>
+                </TouchableOpacity>
               </View>
             }
           />
         </View>
 
         <View style={[Gutters.smallBMargin, Gutters.smallTMargin]}>
-          <Button mode="contained" raised theme={{ roundness: 5 }} uppercase={false} 
-          onPress={() => navigation.navigate('CreateToolBox')}
+          <Button mode="contained" raised theme={{ roundness: 5 }} uppercase={false}
+            onPress={() => navigation.navigate('CreateToolBox')}
             style={[Gutters.smallHPadding, Common.button.createToolBoxButton]} labelStyle={{ color: Colors.grey }}>
             Create New Toolbox
           </Button>

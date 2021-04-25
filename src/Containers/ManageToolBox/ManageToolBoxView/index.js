@@ -5,16 +5,16 @@ import { useTheme } from '@/Theme';
 
 import { DropDown } from '@/Components';
 
-const IndexCreateToolBoxContainer = ({ navigation }) => {
+const IndexManageToolBoxViewContainer = ({ navigation }) => {
   const _goBack = () => navigation.navigation.goBack(null);
   const { Common, Fonts, Gutters, Layout, Colors } = useTheme();
   const listData = [
-    { id: 2, toolboxname: 'DEX' , type:'CT Connector', noofTools: 23, status: 'Maintained', country: 'Saudi Arabia',eqNumber:'2345860671' },
-    { id: 3, toolboxname: 'DEX' , type:'CT Connector', noofTools: 23, status: 'available', country: 'Saudi Arabia',eqNumber:'562345860671' },
-    { id: 4, toolboxname: 'DEX' , type:'CT Connector', noofTools: 23, status: 'available', country: 'India' ,eqNumber:'2345860671'},
-    { id: 5, toolboxname: 'DEX' , type:'CT Connector', noofTools: 23, status: 'available', country: 'India',eqNumber:'2345860671' },
-    { id: 6, toolboxname: 'DEX' , type:'CT Connector', noofTools: 23, status: 'available', country: 'India',eqNumber:'2345860671' },
-    { id: 7, toolboxname: 'DEX' , type:'CT Connector', noofTools: 23, status: 'available', country: 'India',eqNumber:'2345860671' }
+    { id: 2, toolboxname: 'DEX', type: 'CT Connector', noofTools: 23, status: 'Maintained', country: 'Saudi Arabia', eqNumber: '2345860671' },
+    { id: 3, toolboxname: 'DEX', type: 'CT Connector', noofTools: 23, status: 'available', country: 'Saudi Arabia', eqNumber: '562345860671' },
+    { id: 4, toolboxname: 'DEX', type: 'CT Connector', noofTools: 23, status: 'available', country: 'India', eqNumber: '2345860671' },
+    { id: 5, toolboxname: 'DEX', type: 'CT Connector', noofTools: 23, status: 'available', country: 'India', eqNumber: '2345860671' },
+    { id: 6, toolboxname: 'DEX', type: 'CT Connector', noofTools: 23, status: 'available', country: 'India', eqNumber: '2345860671' },
+    { id: 7, toolboxname: 'DEX', type: 'CT Connector', noofTools: 23, status: 'available', country: 'India', eqNumber: '2345860671' }
 
   ];
 
@@ -36,18 +36,25 @@ const IndexCreateToolBoxContainer = ({ navigation }) => {
     <>
       <Appbar.Header >
         <Appbar.BackAction onPress={() => navigation.navigate('HomePage')} color={Colors.white} />
-        <Appbar.Content title="Create New Toolbox" color={Colors.white} />
+        <Appbar.Content title="Manage Toolboxes" subtitle="Toolbox" color={Colors.white} />
       </Appbar.Header>
-      <View style={[Layout.fill, Gutters.smallTMargin, Gutters.smallHPadding,Gutters.smallLMargin, Gutters.smallRMargin]}>
+      <View style={[Layout.fill, Gutters.smallTMargin, Gutters.smallLMargin, Gutters.smallRMargin, Gutters.smallHPadding]}>
 
-        <View style={[Gutters.largeTPadding]}>
-          <TextInput style={{ height: 45 }}
-            mode='outlined' label='ToolBox Name'
-            placeholder="User Name" value={toolBoxName}
-            onChangeText={u => settoolBoxName(u)}
-          />
-          <View style={[Gutters.largeTMargin]}>
-            <DropDown list={countriesList} setData={setCountry} containerStyle={{ height: 45 }} placeholder={'Select Country'} searchablePlaceholder={'Search for Country'}></DropDown>
+        <View style={[Gutters.smallTMargin, Layout.row]}>
+          <View style={[Layout.halfWidth]}>
+            <Button mode="contained" raised theme={{ roundness: 5 }} uppercase={false}
+              icon="printer"
+              style={[Fonts.borderGrey]}>
+              Print Barcode
+                  </Button>
+          </View>
+          <View style={[Layout.halfWidth]}>
+            <Button mode="contained" raised theme={{ roundness: 5 }} uppercase={false}
+              icon="barcode-scan"
+              onPress={() => navigation.navigate('InventoryCheck')}
+              style={[Fonts.borderGrey, Gutters.smallLMargin]}>
+              Inventory Check
+                  </Button>
           </View>
         </View>
 
@@ -63,8 +70,8 @@ const IndexCreateToolBoxContainer = ({ navigation }) => {
           <Text style={[Gutters.smallTMargin]}>Tools Currently in use ?</Text>
         </View>
 
-        <View style={[Gutters.smallTMargin,Gutters.smallBMargin]}> 
-        <TextInput style={{ height: 45 }}
+        <View style={[Gutters.smallTMargin, Gutters.smallBMargin]}>
+          <TextInput style={{ height: 45 }}
             mode='outlined' label='Sales Order Number'
             placeholder="Enter Sales Order Numver" value={salesOrderNo}
             onChangeText={u => setsalesOrderNo(u)}
@@ -84,13 +91,13 @@ const IndexCreateToolBoxContainer = ({ navigation }) => {
               </View>
               <View style={[Layout.itemwidth30]}>
                 <Button mode="contained" raised theme={{ roundness: 5 }} uppercase={false}
-                  style={[Fonts.borderGrey,Gutters.smallLMargin]}>
-                  <Text style={[Fonts.fontSize12,Gutters.smallLMargin]}>Lookup Tool</Text>
+                  style={[Fonts.borderGrey, Fonts.text13, Gutters.smallLMargin]}>
+                  <Text style={[Fonts.fontSize12]}>Lookup Tool</Text>
                 </Button>
               </View>
               <View style={[Layout.itemwidth30]}>
                 <Button mode="contained" raised theme={{ roundness: 5 }} uppercase={false}
-                  style={[Fonts.borderGrey,Gutters.smallLMargin]}>
+                  style={[Fonts.borderGrey, Gutters.smallLMargin]}>
                   <Text style={[Fonts.fontSize12]}>EQ Number</Text>
                 </Button>
               </View>
@@ -146,4 +153,4 @@ const IndexCreateToolBoxContainer = ({ navigation }) => {
 
   );
 };
-export default IndexCreateToolBoxContainer;
+export default IndexManageToolBoxViewContainer;
