@@ -63,6 +63,8 @@ const IndexCreateToolBoxContainer = ({ navigation }) => {
           <Text style={[Gutters.smallTMargin]}>Tools Currently in use ?</Text>
         </View>
 
+
+          {checked && 
         <View style={[Gutters.smallTMargin,Gutters.smallBMargin]}> 
         <TextInput style={{ height: 45 }}
             mode='outlined' label='Sales Order Number'
@@ -70,6 +72,7 @@ const IndexCreateToolBoxContainer = ({ navigation }) => {
             onChangeText={u => setsalesOrderNo(u)}
           />
         </View>
+        }
 
         <View style={[Layout.fill, Gutters.smallTMargin]}>
           <View style={[Common.backgroundGrey, Layout.fullWidth]}>
