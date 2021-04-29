@@ -38,7 +38,7 @@ export default class IndexSigninContainer extends Component {
         })
 
       this.setState({ accessToken: tokens.accessToken });
-     
+      console.log(tokens.rawIdToken);
 
       //Enable This once we have interceptor working 
       // await AsyncStorage.setItem("Idtoken", tokens.rawIdToken);
