@@ -1,8 +1,9 @@
-import React from 'react';
-import { View, FlatList } from 'react-native';
+import React, { useState } from 'react';
+import { View, FlatList, TouchableOpacity } from 'react-native';
 import { Text, Appbar, List, Colors as PapperColors, Button, Searchbar } from 'react-native-paper';
 import { useTheme } from '@/Theme';
-import DropDownPicker from 'react-native-dropdown-picker';
+
+import { DropDown } from '@/Components';
 
 const IndexManageToolBoxesContainer = ({ navigation }) => {
   const _goBack = () => navigation.navigation.goBack(null);
@@ -18,6 +19,18 @@ const IndexManageToolBoxesContainer = ({ navigation }) => {
     { id: 10, toolboxname: 'ANT', noofTools: 23, status: 'available', country: 'Saudi' },
     { id: 1, toolboxname: 'KEM', noofTools: 23, status: 'available', country: 'Saudi' }
 
+  ];
+
+  const [selectedCountry, setselectedCountry] = useState('');
+
+  const setCountry = (option) => {
+    setselectedCountry(option.label);
+  };
+
+  const countriesList = [
+    { label: 'USA', value: 'usa' },
+    { label: 'UK', value: 'uk' },
+    { label: 'France', value: 'france' }
   ];
   return (
     <>
@@ -36,29 +49,7 @@ const IndexManageToolBoxesContainer = ({ navigation }) => {
         </View>
 
         <View style={[Gutters.smallTPadding]}>
-          <DropDownPicker
-            items={[
-              { label: 'USA', value: 'usa' },
-              { label: 'UK', value: 'uk' },
-              { label: 'France', value: 'france' },
-            ]}
-            containerStyle={{ height: 45 }}
-            style={{ backgroundColor: '#fafafa' }}
-            itemStyle={{
-              justifyContent: 'flex-start'
-            }}
-            dropDownStyle={{ backgroundColor: '#fafafa' }}
-            onChangeItem={item => console.log('value', item)}
-            searchable={true}
-            searchablePlaceholder="Search for an item"
-            searchablePlaceholderTextColor="gray"
-            seachableStyle={{}}
-            searchableError={() => <Text>Not Found</Text>}
-            onSearch={text => {
-              // Example
-              // alert(text)
-            }}
-          />
+          <DropDown list={countriesList} setData={setCountry} containerStyle={{ height: 45 }} placeholder={'Select Country'} searchablePlaceholder={'Search for Country'}></DropDown>
         </View>
 
 
@@ -68,6 +59,7 @@ const IndexManageToolBoxesContainer = ({ navigation }) => {
             data={listData}
             renderItem={({ item, index }) =>
               <View style={[index % 2 == 0 ? Common.backgroundLight : Common.backgroundGrey]}>
+                <TouchableOpacity onPress={() => navigation.navigate('ToolBoxView')}>
                 <View style={Layout.flatListContainer}>
                   <View style={Layout.flatListRow}>
                     <Text style={Fonts.textHeader}>TOOL BOX</Text>
@@ -90,6 +82,7 @@ const IndexManageToolBoxesContainer = ({ navigation }) => {
                     </Button>
                   </View>
                 </View>
+                </TouchableOpacity>
               </View>
             }
           />
@@ -97,6 +90,7 @@ const IndexManageToolBoxesContainer = ({ navigation }) => {
 
         <View style={[Gutters.smallBMargin, Gutters.smallTMargin]}>
           <Button mode="contained" raised theme={{ roundness: 5 }} uppercase={false}
+            onPress={() => navigation.navigate('CreateToolBox')}
             style={[Gutters.smallHPadding, Common.button.createToolBoxButton]} labelStyle={{ color: Colors.grey }}>
             Create New Toolbox
           </Button>

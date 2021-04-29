@@ -37,7 +37,7 @@ const IndexEditToolContainer = ({ navigation }) => {
     <>
       <Appbar.Header >
         <Appbar.BackAction onPress={() => navigation.navigate('HomePage')} color={Colors.white} />
-        <Appbar.Content title="Manage Tool Boxes" color={Colors.white} />
+        <Appbar.Content title="Search for a Tool" subtitle="Scan Barcode>Edit Properties" color={Colors.white} />
       </Appbar.Header>
       <View style={[Layout.fill, Gutters.smallTMargin, Gutters.smallHPadding]}>
         <ScrollView>

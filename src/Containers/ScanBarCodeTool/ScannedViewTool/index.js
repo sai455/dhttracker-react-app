@@ -152,7 +152,7 @@ const IndexBarCodeToolContainer = ({ navigation }) => {
                   <Button mode="contained" raised theme={{ roundness: 5 }} uppercase={false}
                       icon="printer"
                       
-                      onPress={() => navigation.navigate('ToolsLookupPage')}
+                      onPress={() => navigation.navigate('AddMaintainencePage')}
                       style={[Gutters.smallTMargin, Gutters.smallRMargin,Fonts.borderGrey]}>
                       Add Performance Maintainence
                   </Button>

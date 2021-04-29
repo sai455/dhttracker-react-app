@@ -127,6 +127,10 @@ export default function () {
     },
     halfWidth:{
       width: '50%'
+    },
+    itemwidth30:{
+      width:'33%'
     }
+
   })
 }
