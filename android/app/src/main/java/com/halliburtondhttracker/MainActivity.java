@@ -1,5 +1,7 @@
-package com.reactnativeboilerplate;
+package com.halliburtondhttracker;
+
 import android.os.Bundle;
+
 import com.facebook.react.ReactActivity;
 
 public class MainActivity extends ReactActivity {

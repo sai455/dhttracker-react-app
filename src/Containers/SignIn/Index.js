@@ -1,49 +1,127 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { Component } from 'react'
 import {
-    View,
-    Text
-} from 'react-native'
-import { Button, TextInput } from 'react-native-paper';
-import { Brand } from '@/Components'
-import { useTheme } from '@/Theme'
+  Button,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
+import AzureAuth from 'react-native-azure-auth';
+
+import { navigateAndSimpleReset } from '@/Navigators/Root'
+import  AsyncStorage  from '@react-native-async-storage/async-storage';
+import axios from 'axios'
+
+const azureAuth = new AzureAuth({
+  tenant: 'aca6f183-7909-4124-9119-f4b077335a34',
+  clientId: '7323d38e-feb1-4df8-8d34-2892077fda67',
+});
+const options = {
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/x-www-form-urlencoded'
+  },
+};
+
+export default class IndexSigninContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { accessToken: null, user: '', mails: [], userId: '' };
+   
+
+  }
+  _onLogin = async () => {
+    try {
+     
+      let tokens = await azureAuth.webAuth.authorize(
+        {
+          scope: 'openid profile User.Read email',
+        })
+
+      this.setState({ accessToken: tokens.accessToken });
+     
+
+      //Enable This once we have interceptor working 
+      // await AsyncStorage.setItem("Idtoken", tokens.rawIdToken);
+      //   console.log(tokens.rawIdToken);
+
+      // axios.get('http://192.168.0.39/DownholeToolsApi/api/downholetools/user',{headers : {
+      //   'Authorization': `Bearer ${tokens.rawIdToken}`
+      // }})
+      // .then(function (response) {
+      //   console.log(response.data);
+      // })
+      // .catch(function (error) {
+      //   console.log('Errrr'+error);
+      // })
 
 
 
-const IndexSigninContainer = ({ navigation })  => {
+      navigateAndSimpleReset('HomePage');
+    } catch (error) {
+      console.log('Error during Azure operation', error)
+    }
+  };
 
-    const { Common, Fonts, Gutters, Layout, Colors } = useTheme()
-    const dispatch = useDispatch()
-    const [userName, setText] = React.useState('');
-    const [password, setPassword] = React.useState("");
+  _onLogout = () => {
+    azureAuth.webAuth
+      .clearSession()
+      .then(success => {
+        this.setState({ accessToken: null, user: null });
+      })
+      .catch(error => console.log(error));
+  };
+
+  render() {
+    let loggedIn = this.state.accessToken ? true : false;
     return (
-        <>
-            <View style={[Layout.fill, Gutters.smallTMargin, Gutters.smallHPadding]}>
-                <View style={[[Layout.colCenter, Gutters.smallHPadding]]}>
-                    <Brand />
-                    <Text style={[Fonts.titleSmall, Gutters.smallTMargin]}>DHT Tracker</Text>
-                    <Text style={[Fonts.textSmall, Fonts.textlight, Gutters.largeTMargin]}>Proceed with your</Text>
-                    <Text style={[Fonts.titleSmall, Gutters.smallTMargin]}>Login</Text>
-                </View>
-                <View style={[Layout.fullWidth, Gutters.smallHPadding, Gutters.largeTMargin]}>
-                    <TextInput
-                        mode='outlined' label='User Name'
-                        placeholder="User Name" value={userName}
-                        onChangeText={u => setText(u)}
-                    />
-                    <TextInput
-                        mode='outlined' label='Password' secureTextEntry={true}
-                        placeholder="Password" value={password}
-                        onChangeText={p => setPassword(p) } style={[Gutters.smallTMargin]}
-                    />
-                    <Button mode="contained" raised theme={{ roundness: 3 }}  uppercase={false}
-                        onPress={() => navigation.navigate('HomePage')} labelStyle={{color: Colors.grey}}
-                        style={[Gutters.smallTMargin, Common.button.loginButton]}>
-                        Sign In
-                </Button>
-                </View>
-            </View>
-        </>
-    )
+      <View style={styles.container}>
+        <View>
+          <Text style={styles.header}>Azure Auth - Login</Text>
+          <Text style={styles.text}>Hello {this.state.user}!</Text>
+          <Text style={styles.text}>
+            You are {loggedIn ? '' : 'not '}logged in.
+            </Text>
+        </View>
+        <View style={styles.buttons}>
+          <Button
+            style={styles.button}
+            onPress={loggedIn ? this._onLogout : this._onLogin}
+            title={loggedIn ? 'Log Out' : 'Log In'}
+          />
+        </View>
+      </View>
+    );
+  }
 }
-export default IndexSigninContainer
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'stretch',
+    backgroundColor: '#F5FCFF'
+  },
+  header: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10
+  },
+  text: {
+    textAlign: 'center'
+  },
+  buttons: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'baseline',
+    padding: 20
+  },
+  button: {
+    flex: 1,
+    padding: 20,
+    margin: 20
+  },
+  list: {
+    flex: 5,
+    margin: 20
+  }
+});

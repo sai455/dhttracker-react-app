@@ -44,7 +44,7 @@ const ApplicationNavigator = () => {
   return (
     <SafeAreaView style={[Layout.fill, { backgroundColor: colors.card }]}>
       <NavigationContainer theme={NavigationTheme} ref={navigationRef}>
-        <StatusBar barStyle={darkMode ? 'light-content' : 'dark-content'} />
+        <StatusBar barStyle={'light-content'} />
         <Stack.Navigator headerMode={'none'}>
           <Stack.Screen name="Startup" component={IndexStartupContainer} />
           {isApplicationLoaded && MainNavigator != null && (
